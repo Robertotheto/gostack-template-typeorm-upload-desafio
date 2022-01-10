@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: gostack-desafio06-nodejs-typeorm
+    restart: always
+    tty: true
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=gostack_desafio06
+    volumes:
+      - .docker/db-data/:/var/lib/postgresql/data/
+  db_test:
+    image: postgres:latest
+    container_name: gostack-desafio06-nodejs-typeorm-test
+    restart: always
+    tty: true
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=gostack_desafio06_tests
+    volumes:
+      - .docker/db-data-test/:/var/lib/postgresql/data/

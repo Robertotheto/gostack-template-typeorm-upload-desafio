@@ -3,6 +3,8 @@
 node_modules/
 build/
 temp/
+.docker/db-data
+.docker/db-data-test
 
 tmp/*
 !tmp/.gitkeep
